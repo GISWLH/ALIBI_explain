@@ -1,0 +1,39 @@
+![ALIBI Explain — Runoff models, explained](assets/readme/banner.svg)
+
+# ALIBI_explain
+
+用 SHAP 和累积局部效应（ALE）分析径流预测模型的特征贡献。项目包含两条可独立运行的流程：随机森林 + SHAP，以及多层感知机 + ALIBI ALE。
+
+## 结果展示
+
+以下为项目已保存的结果图，尚未在本轮重新运行验证。
+
+| SHAP 特征贡献 | ALE 响应曲线 |
+| --- | --- |
+| ![随机森林径流预测的 SHAP 汇总图](figure/runoff_shap_summary.png) | ![神经网络径流预测的 ALE 曲线](figure/runoff_ale_explanation.png) |
+
+## 运行
+
+在项目根目录准备 `geo.csv`。脚本将 `runoff_sum` 作为预测目标，排除 `time` 列，其余列作为输入特征。
+
+```bash
+python -m pip install pandas numpy matplotlib seaborn scikit-learn shap alibi
+python code/runoff_prediction_shap.py
+python code/runoff_prediction_ale.py
+```
+
+Notebook 入口为 [`alibi_cookbook.ipynb`](alibi_cookbook.ipynb)。依赖列表依据源码导入整理，当前项目没有固定依赖版本的环境文件。
+
+## 文件
+
+| 入口 | 用途 |
+| --- | --- |
+| `code/runoff_prediction_shap.py` | 训练随机森林，输出 SHAP 汇总图和重要性图 |
+| `code/runoff_prediction_ale.py` | 训练 MLP，输出 ALE 曲线和效应幅度图 |
+| `geo.csv` | 本地径流及环境变量输入 |
+| `figure/` | 保存绘图结果 |
+| `docs_EN.md` | 项目已有英文资料 |
+
+SHAP 和 ALE 描述模型对输入特征的响应，不能单凭这些图把相关性解释为因果效应。跨时间或跨流域使用前，应另行设计验证划分。
+
+条幅源文件：[Excalidraw](assets/readme/banner.excalidraw)。
