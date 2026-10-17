@@ -1,0 +1,52 @@
+{
+  "project": "ALIBI_explain",
+  "command": [
+    "python",
+    "code/runoff_prediction_shap.py"
+  ],
+  "python": "3.11.9 (main, Apr 19 2024, 16:48:06) [GCC 11.2.0]",
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "matplotlib": "3.9.4",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.5.2",
+    "seaborn": "0.13.2",
+    "shap": "0.46.0",
+    "numba": "0.60.0",
+    "xgboost": "1.7.6"
+  },
+  "started_at_utc": "2026-10-17T17:25:03.412204+00:00",
+  "finished_at_utc": "2026-10-17T17:25:06.587256+00:00",
+  "source_modified": false,
+  "data_subset": false,
+  "exit_code": 0,
+  "elapsed_seconds": 3.1750502109061927,
+  "environment": "EHPC PBS CPU job",
+  "resources": {
+    "nodes": 1,
+    "cpus": 2,
+    "memory_gb": 4
+  },
+  "outputs": [
+    {
+      "path": "runoff_shap_summary.png",
+      "sha256": "952609ad35b47c8f87c48a9745c1d28ecd995d4cef92452f847e6796c4287c14",
+      "bytes": 244055
+    }
+  ],
+  "source_files": [
+    {
+      "path": "code/runoff_prediction_shap.py",
+      "sha256": "89dc6ca957cb506fc8c7be31a34db7f6dfcea5089123dd55214852949f10dd4e",
+      "bytes": 2337
+    }
+  ],
+  "input_files": [
+    {
+      "path": "geo.csv",
+      "sha256": "7da96ebfb5a3f2624bd22015652967cd3ef4258a131e58c9de2d1b0e8f9a3d78",
+      "bytes": 151771
+    }
+  ]
+}
